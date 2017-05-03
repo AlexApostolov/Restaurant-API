@@ -7,10 +7,13 @@ import config from './config';
 import routes from './routes';
 
 let app = express();
-app.server = http:createServer(app);
+app.server = http.createServer(app);
 
 // middleware
-
+// parse application/json data but with a size limit
+app.use(bodyParser.json({
+  limit: config.bodyLimit
+}));
 // passport config
 
 // api routes v1
